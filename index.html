@@ -15,62 +15,27 @@
 <p id="result"></p>
 
 <script>
-function digitSum(n){
-  return String(n).split('').reduce((a,c)=> a + Number(c), 0);
-}
-
-function reduceTo21(n){
-  while(n > 21){
-    n = digitSum(n);
-  }
-  return n;
-}
-
-const cardName = {
-  3: "GENERATER",
-  4: "REIGNS",
-  5: "SHAMAN",
-  6: "DEAREST",
-  7: "VALKYRIE",
-  8: "EUSTITIA",
-  9: "SAMURAI",
-  10:"PHARAOH",
-  11:"HARDY EXPLORER",
-  12:"ASTRONOMER",
-  13:"STARS MAKER",
-  14:"ALL THE RAGE",
-  15:"REVOLUTIONIST",
-  16:"TRANSFORMERS",
-  17:"THE HERO",
-  18:"CLEVER THINKER",
-  19:"KING OF KINGS",
-  20:"CELEBRATER",
-  21:"THE CREATER"
-};
-
 function diagnose() {
   const b = document.getElementById("birthday").value;
-  const resultEl = document.getElementById("result");
+  const result = document.getElementById("result");
 
   if (!b) {
-    resultEl.innerText = "生年月日を入力してね";
+    result.innerText = "生年月日を入力してね";
     return;
   }
 
-  const yyyymmdd = b.replaceAll("-", "");
-  let sum = yyyymmdd.split("").reduce((a,c)=> a + Number(c), 0);
-  sum = reduceTo21(sum);
+  const nums = b.replaceAll("-", "").split("").map(Number);
+  let sum = nums.reduce((a,c)=>a+c,0);
 
-  if (sum < 3) {
-    resultEl.innerText = "この診断は3〜21のみ対応です🙏";
-    return;
+  while (sum > 21) {
+    sum = sum.toString().split("").reduce((a,c)=>a+Number(c),0);
   }
 
-  const name = cardName[sum] || "";
-  resultEl.innerText = `🔮あなたのステラナンバーは【${sum}｜${name}】です`;
+  result.innerText = "🔮あなたのステラナンバーは「" + sum + "」です";
 }
 </script>
 
 </body>
 </html>
+
 
