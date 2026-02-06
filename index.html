@@ -5,16 +5,16 @@
   <title>ステラ診断</title>
 </head>
 <body>
-  <h1>🔮ステラ診断（３〜２１）</h1>
-  <p>生年月日を入力してください</p>
 
-  <input type="date" id="birthday">
-  <button onclick="diagnose()">診断する</button>
+<h1>🔮ステラ診断（3〜21）</h1>
+<p>生年月日を入力してください</p>
 
-  <p id="result"></p>
+<input type="date" id="birthday">
+<button onclick="diagnose()">診断する</button>
 
-  <script>
-    <script>
+<p id="result"></p>
+
+<script>
 function digitSum(n){
   return String(n).split('').reduce((a,c)=> a + Number(c), 0);
 }
@@ -66,24 +66,11 @@ function diagnose() {
     return;
   }
 
-  const name = cardName[sum] || "（未設定）";
+  const name = cardName[sum] || "";
   resultEl.innerText = `🔮あなたのステラナンバーは【${sum}｜${name}】です`;
 }
 </script>
 
-      const b = document.getElementById("birthday").value;
-      if (!b) {
-        document.getElementById("result").textContent = "生年月日を入力してね";
-        return;
-      }
-      const nums = b.replaceAll("-", "").split("").map(Number);
-      let sum = nums.reduce((a, c) => a + c, 0);
-      while (sum > 21) {
-        sum = sum.toString().split("").map(Number).reduce((a, c) => a + c, 0);
-      }
-      document.getElementById("result").textContent =
-        "あなたのステラナンバーは「" + sum + "」です";
-    }
-  </script>
 </body>
 </html>
+
