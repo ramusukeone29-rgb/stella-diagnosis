@@ -3,6 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <title>ステラ診断</title>
+<style>
+  :root{
+    --bg1:#0b1026;
+    --bg2:#1a1240;
+    --card: rgba(255,255,255,.10);
+    --card2: rgba(255,255,255,.14);
+    --text:#f7f2ff;
+    --muted: rgba(255,255,255,.75);
+    --accent:#ffb6e1;   /* かわいいピンク */
+    --accent2:#b9f2ff;  /* ふわ水色 */
+  }
+
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(900px 600px at 20% 0%, rgba(185,242,255,.22), transparent 55%),
+      radial-gradient(900px 600px at 80% 20%, rgba(255,182,225,.18), transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:40px 16px;
+  }
+
+  .wrap{
+    width:min(680px, 100%);
+  }
+
+  .title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    letter-spacing:.02em;
+    margin:0 0 12px;
+    font-size:28px;
+  }
+
+  .subtitle{
+    margin:0 0 18px;
+    color: var(--muted);
+  }
+
+  .panel{
+    background: linear-gradient(180deg, var(--card), var(--card2));
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 18px;
+    padding:18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.30);
+    backdrop-filter: blur(10px);
+  }
+
+  .row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  input[type="date"]{
+    padding:10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(0,0,0,.18);
+    color: var(--text);
+  }
+
+  button{
+    padding:10px 14px;
+    border-radius: 12px;
+    border: none;
+    cursor:pointer;
+    font-weight:700;
+    color:#1a1240;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    box-shadow: 0 10px 25px rgba(255,182,225,.18);
+  }
+
+  button:active{ transform: translateY(1px); }
+
+  #result{
+    margin-top:14px;
+    white-space:pre-line;
+    font-size:18px;
+    line-height:1.6;
+  }
+
+  .badge{
+    display:inline-block;
+    font-size:12px;
+    padding:6px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.16);
+    color: var(--muted);
+    margin-bottom:10px;
+  }
+</style>
 </head>
 <body>
 <style>
